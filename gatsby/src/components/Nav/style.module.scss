@@ -1,11 +1,30 @@
+@import '../../styles/vars';
+
 .menu {
     list-style: none;
     display: flex;
     justify-content: center;
     align-items: center;
     li {
-        margin: 0 1rem;
+        margin: 0 1.5rem;
+        a {
+            font-family: $cursive-font;
+            font-size: 1.5em;
+            display: block;
+        }
     }
-    a {
+}
+
+.link {
+    color: $white;
+    transition: transform 0.4s, color 0.4s;
+    &:hover {
+        transform: rotate(-5deg);
+        color: $primary;
     }
+}
+
+.activeLink {
+    transform: rotate(-5deg);
+    color: $primary;
 }

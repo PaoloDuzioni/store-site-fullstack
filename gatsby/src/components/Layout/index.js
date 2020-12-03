@@ -4,6 +4,7 @@ import Footer from '../Footer/';
 
 import 'normalize.css';
 import 'typeface-roboto';
+import 'typeface-lobster';
 import '../../styles/main.scss';
 
 import style from './style.module.scss';

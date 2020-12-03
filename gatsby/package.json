@@ -20,6 +20,7 @@
         "normalize.css": "^8.0.1",
         "react": "^16.12.0",
         "react-dom": "^16.12.0",
+        "typeface-lobster": "^1.1.13",
         "typeface-roboto": "^1.1.13"
     },
     "devDependencies": {
