@@ -5,6 +5,9 @@
  */
 
 module.exports = {
-  /* Your site config here */
-  plugins: [],
-}
+    siteMetadata: {
+        title: `Pizza's Store`,
+        description: `Your dreams Pizza Store`,
+    },
+    plugins: ['gatsby-plugin-sass'],
+};
