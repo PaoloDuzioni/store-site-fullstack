@@ -5,7 +5,7 @@ import Logo from '../Logo';
 
 const Nav = () => {
     return (
-        <nav>
+        <nav className="container">
             <ul className={style.menu}>
                 <li>
                     <Link to="/" className={style.activeLink}>
