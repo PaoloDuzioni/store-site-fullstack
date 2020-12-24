@@ -1,12 +1,15 @@
 import React from 'react';
 import Pizza from '../Pizza';
+import styles from './style.module.scss';
 
 const PizzaList = ({ pizzas }) => {
     return (
         <div>
-            <h4>There are actually {pizzas.length} pizzas!!</h4>
+            <h4 class={styles.pizzaListTitle}>
+                There are actually {pizzas.length} pizzas! Pick your fav:
+            </h4>
 
-            <ul>
+            <ul className={styles.pizzaList}>
                 {pizzas.map(pizza => (
                     <Pizza key={pizza.id} details={pizza} />
                 ))}

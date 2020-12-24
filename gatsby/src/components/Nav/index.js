@@ -8,12 +8,20 @@ const Nav = () => {
         <nav className="container">
             <ul className={style.menu}>
                 <li>
-                    <Link to="/" className={style.activeLink}>
-                        Hot Now
+                    <Link
+                        to="/"
+                        activeClassName={style.activeLink}
+                        className={style.link}
+                    >
+                        Welcome
                     </Link>
                 </li>
                 <li>
-                    <Link to="/pizzas" className={style.link}>
+                    <Link
+                        to="/pizzas"
+                        activeClassName={style.activeLink}
+                        className={style.link}
+                    >
                         Pizza menu
                     </Link>
                 </li>
@@ -23,12 +31,20 @@ const Nav = () => {
                     </Link>
                 </li>
                 <li>
-                    <Link to="/slicemasters" className={style.link}>
-                        SliceMasters
+                    <Link
+                        to="/slicemasters"
+                        activeClassName={style.activeLink}
+                        className={style.link}
+                    >
+                        Pizza Masters
                     </Link>
                 </li>
                 <li>
-                    <Link to="/order" className={style.link}>
+                    <Link
+                        to="/order"
+                        activeClassName={style.activeLink}
+                        className={style.link}
+                    >
                         Order Now!
                     </Link>
                 </li>

@@ -2,7 +2,7 @@ import React from 'react';
 
 const SlicemastersPage = () => {
     return (
-        <div>
+        <div className="container">
             <h1>Slicemasters Page here</h1>
         </div>
     );

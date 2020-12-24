@@ -1,5 +1,4 @@
 import React from 'react';
-import Nav from '../Nav/';
 import Footer from '../Footer/';
 
 import 'normalize.css';
@@ -8,11 +7,12 @@ import 'typeface-lobster';
 import '../../styles/main.scss';
 
 import style from './style.module.scss';
+import Header from '../Header';
 
 const Layout = ({ children }) => {
     return (
         <div className={style.app}>
-            <Nav />
+            <Header />
             <main className={style.mainContent}>{children}</main>
             <Footer />
         </div>

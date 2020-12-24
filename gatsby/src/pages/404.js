@@ -2,7 +2,7 @@ import React from 'react';
 
 const FourOhFourPage = () => {
     return (
-        <div>
+        <div className="container">
             <h1>404</h1>
             <p>Something gone wronge</p>
         </div>

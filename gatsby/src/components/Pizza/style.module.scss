@@ -1,0 +1,43 @@
+@import '../../styles/vars';
+
+.pizzaContainer {
+    a {
+        color: $white;
+    }
+    &:hover {
+        .pizzaImage,
+        .pizzaPrice {
+            background: $pure-black;
+        }
+    }
+}
+
+.pizzaImage {
+    margin: 0;
+    padding: 1rem;
+    background: transparent;
+    border: 1px solid $white;
+    border-radius: 30px 0;
+    transition: background 0.4s;
+    img {
+        border-radius: 30px 0;
+    }
+}
+
+.pizzaTitle {
+    font-family: $cursive-font;
+    font-size: 1.5em;
+    color: $primary;
+}
+
+.pizzaPrice {
+    display: block;
+    margin: 2rem auto;
+    padding: 0.75rem 1rem;
+    text-align: center;
+    font-weight: 700;
+    background: transparent;
+    border: 1px solid $white;
+    border-radius: 15px 0;
+    transition: background 0.4s;
+}

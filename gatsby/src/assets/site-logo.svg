@@ -1091,9 +1091,5 @@
 		<path fill="#42161A" d="M1005.409,905.906c3.248,0,3.254-5.048,0-5.048C1002.161,900.858,1002.155,905.906,1005.409,905.906z"/>
 		<path fill="#42161A" d="M995.874,809.431c-3.248,0-3.254,5.048,0,5.048C999.122,814.479,999.127,809.431,995.874,809.431z"/>
 	</g>
-
-		<text transform="matrix(1 0 0 1 512.4282 937.3945)" fill="#42161A" font-family="sans-serif" font-size="128.4767px" letter-spacing="3">PIZZA</text>
-
-		<text transform="matrix(1 0 0 1 481.6587 1045.0869)" fill="#42161A" font-family="sans-serif" font-size="128.4767px" letter-spacing="3">HOUSE</text>
 </g>
 </svg>
