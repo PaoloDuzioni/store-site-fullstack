@@ -32,7 +32,7 @@ const Nav = () => {
                 </li>
                 <li>
                     <Link
-                        to="/slicemasters"
+                        to="/pizzamasters"
                         activeClassName={style.activeLink}
                         className={style.link}
                     >
