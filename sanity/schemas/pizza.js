@@ -44,7 +44,6 @@ export default {
                 Rule.required()
                     .min(4)
                     .error('The minimum cost for a pizza is 4€'),
-            // TODO: Add custom component
             inputComponent: PriceInput,
         },
     ],

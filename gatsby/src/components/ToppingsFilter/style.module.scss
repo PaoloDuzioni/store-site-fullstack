@@ -1,0 +1,34 @@
+@import '../../styles/vars';
+
+.filterList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem; // <-- WOW *.*
+}
+
+.filterItem {
+    padding: 0.5rem;
+    font-size: 14px;
+    border: 1px solid $primary;
+    border-radius: 5px;
+}
+
+.filterName {
+    text-transform: uppercase;
+}
+
+.filterCount {
+    margin-left: 1rem;
+    color: $white;
+}
+
+.filterActive {
+    background: $primary;
+    transition: background 0.4s;
+    .filterName {
+        color: $white;
+    }
+    &:hover {
+        background: $black;
+    }
+}

@@ -5,7 +5,7 @@ import styles from './style.module.scss';
 const PizzaList = ({ pizzas }) => {
     return (
         <div>
-            <h4 class={styles.pizzaListTitle}>
+            <h4 className={styles.pizzaListTitle}>
                 There are actually {pizzas.length} pizzas! Pick your fav:
             </h4>
 

@@ -5,7 +5,7 @@ import styles from './style.module.scss';
 
 const Pizza = ({ details }) => {
     return (
-        <li class={styles.pizzaContainer}>
+        <li className={styles.pizzaContainer}>
             <Link to={`/pizza/${details.slug.current}`}>
                 <figure className={styles.pizzaImage}>
                     <Img fluid={details.image.asset.fluid} alt={details.name} />

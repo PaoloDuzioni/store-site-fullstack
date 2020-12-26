@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import PizzaList from '../components/PizzaList';
+import ToppingsFilter from '../components/ToppingsFilter';
 
 const PizzasPage = ({ data }) => {
     const pizzas = data.pizzas.nodes;
@@ -8,6 +9,8 @@ const PizzasPage = ({ data }) => {
     return (
         <div className="container">
             <h1>Choose the best pizza in the world</h1>
+
+            <ToppingsFilter />
 
             <PizzaList pizzas={pizzas} />
         </div>
