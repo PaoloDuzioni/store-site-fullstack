@@ -1,4 +1,62 @@
-const path = require(`path`);
+const path = require('path');
+const axios = require('axios');
+
+/***********************************************************************
+    INSERT IN GATSBY's GraphQL API EXTERNAL REST API/GraphQL DATA
+
+    You can test if the data been created correctly with GraphiQL
+ ***********************************************************************/
+
+/**
+ * GET BEERS FROM EXTERNAL REST API
+ */
+async function fetchBeersYoNodes({
+    actions,
+    createNodeId,
+    createContentDigest,
+}) {
+    // 1. fetch list of beer
+    let beers = [];
+    axios
+        .get('https://sampleapis.com/beers/api/ale')
+        .then(function (response) {
+            // console.log(beers);
+            beers = response.data;
+
+            // 2. Loop over all the beers to create a node for the beer
+            beers.forEach(beer => {
+                const nodeMeta = {
+                    id: createNodeId(`beer-${beer.name}`), // Gatsby's helper for unique IDs if you need
+                    parent: null,
+                    children: [],
+                    internal: {
+                        type: 'Beer', // in GraphQl API -> allBeer and beer
+                        mediaType: 'application/json',
+                        contentDigest: createContentDigest(beer),
+                    },
+                };
+
+                actions.createNode({
+                    ...beer,
+                    ...nodeMeta,
+                });
+            });
+        })
+        .catch(error => {
+            console.log(`Error on beers fetching: ${error}`);
+        });
+}
+
+/**
+ * SOURCE GENERATION OF NODES (DATA)
+ */
+exports.sourceNodes = async params => {
+    await Promise.all([fetchBeersYoNodes(params)]);
+};
+
+/****************************************************************
+    DINAMIC PAGES GENERATIONS WITH SANITY SOURCES
+ ****************************************************************/
 
 /**
  * PIZZAS PAGES
