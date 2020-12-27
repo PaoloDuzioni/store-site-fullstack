@@ -17,7 +17,9 @@ const PizzaDetail = ({ pizza }) => {
                         {pizza.price.toFixed(2)}€
                     </div>
 
-                    <h3 className={styles.pizzaSubtitle}>Toppings</h3>
+                    <h3 className={styles.pizzaSubtitle}>
+                        <span>Toppings</span>
+                    </h3>
                     <ul className={styles.pizzaList}>
                         {pizza.toppings.map(topping => (
                             <li>{topping.name}</li>

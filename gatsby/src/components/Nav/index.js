@@ -6,7 +6,7 @@ import Logo from '../Logo';
 const Nav = () => {
     return (
         <nav className="container">
-            <ul className={style.menu}>
+            <ul className={`no-list ${style.menu}`}>
                 <li>
                     <Link
                         to="/"
