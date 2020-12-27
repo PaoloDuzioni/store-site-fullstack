@@ -4,10 +4,10 @@ import ratingStartConverter from '../../utils/ratingStartConverter';
 import styles from './style.module.scss';
 
 const BeersList = () => {
-    // Get beers
+    // Get first 10 beers
     const data = useStaticQuery(graphql`
         query {
-            beers: allBeer {
+            beers: allBeer(limit: 10) {
                 nodes {
                     id
                     name
@@ -21,7 +21,6 @@ const BeersList = () => {
             }
         }
     `);
-    console.log(data.beers.nodes);
 
     return (
         <section className={styles.beersSection}>
