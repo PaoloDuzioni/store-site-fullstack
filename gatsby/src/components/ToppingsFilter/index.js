@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import styles from './style.module.scss';
 
-const ToppingsFilter = () => {
+const ToppingsFilter = ({ activeTopping }) => {
     // get list of toppings and pizzas toppings
     const { pizzas } = useStaticQuery(graphql`
         query {
@@ -51,8 +51,16 @@ const ToppingsFilter = () => {
     // rendering
     return (
         <section>
-            <h4 className="toppings">Toppings Filter</h4>
+            <h4 className={styles.sectionTitle}>
+                Toppings Filter{activeTopping ? `: ${activeTopping}` : ''}
+            </h4>
             <div className={styles.filterList}>
+                <Link className={styles.filterItem} to="/pizzas">
+                    <span className={styles.filterName}>All</span>
+                    <span className={styles.filterCount}>
+                        {pizzas.nodes.length}
+                    </span>
+                </Link>
                 {toppingsWithCounts.map(topping => (
                     <Link
                         className={styles.filterItem}

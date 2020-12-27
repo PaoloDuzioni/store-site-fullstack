@@ -1,5 +1,10 @@
 @import '../../styles/vars';
 
+.sectionTitle {
+    font-weight: 400;
+    font-size: 0.875em;
+}
+
 .filterList {
     display: flex;
     flex-wrap: wrap;
@@ -11,6 +16,15 @@
     font-size: 14px;
     border: 1px solid $primary;
     border-radius: 5px;
+    // active class setted Gatsby
+    &[aria-current='page'] {
+        background: $primary;
+        transition: background 0.4s;
+        .filterName,
+        .filterCount {
+            color: $black;
+        }
+    }
 }
 
 .filterName {
@@ -20,15 +34,4 @@
 .filterCount {
     margin-left: 1rem;
     color: $white;
-}
-
-.filterActive {
-    background: $primary;
-    transition: background 0.4s;
-    .filterName {
-        color: $white;
-    }
-    &:hover {
-        background: $black;
-    }
 }
