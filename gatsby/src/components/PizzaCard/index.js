@@ -8,7 +8,7 @@ const PizzaCard = ({ details }) => {
         <li className={styles.pizzaContainer}>
             <Link to={`/pizza/${details.slug.current}`}>
                 <figure className={styles.pizzaImage}>
-                    <Img fluid={details.image.asset.fluid} alt={details.name} />
+                    <Img fixed={details.image.asset.fixed} alt={details.name} />
                 </figure>
                 <h2 className={styles.pizzaTitle}>{details.name}</h2>
                 <div>
