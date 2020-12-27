@@ -26,7 +26,10 @@ const Nav = () => {
                     </Link>
                 </li>
                 <li>
-                    <Link to="/" className={style.link}>
+                    <Link
+                        to="/"
+                        className={`${style.noRotation} ${style.link}`}
+                    >
                         <Logo logoWidth="200" />
                     </Link>
                 </li>

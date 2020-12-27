@@ -19,9 +19,9 @@
 
 .link {
     color: $white;
-    transition: transform 0.4s, color 0.4s;
+    transform: rotate(-5deg);
+    transition: color 0.4s;
     &:hover {
-        transform: rotate(-5deg);
         color: $primary;
     }
 }
@@ -29,4 +29,8 @@
 .activeLink {
     transform: rotate(-5deg);
     color: $primary;
+}
+
+.noRotation {
+    transform: none;
 }

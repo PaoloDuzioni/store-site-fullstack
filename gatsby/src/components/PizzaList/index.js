@@ -9,7 +9,7 @@ const PizzaList = ({ pizzas }) => {
                 There are actually {pizzas.length} pizzas! Pick your fav:
             </h4>
 
-            <ul className={styles.pizzaList}>
+            <ul className={`no-list ${styles.pizzaList}`}>
                 {pizzas.map(pizza => (
                     <PizzaCard key={pizza.id} details={pizza} />
                 ))}
