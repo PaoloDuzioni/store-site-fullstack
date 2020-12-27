@@ -4,7 +4,7 @@ import styles from './style.module.scss';
 const Footer = () => {
     return (
         <footer className={`text-center ${styles.footer}`}>
-            <p>&copy; Pizza's Store {new Date().getFullYear()}</p>
+            <p>&copy; Paolo's Pizza {new Date().getFullYear()}</p>
         </footer>
     );
 };

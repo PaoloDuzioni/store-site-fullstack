@@ -9,8 +9,11 @@ const ToppingsFilter = ({ activeTopping }) => {
             pizzas: allSanityPizza {
                 nodes {
                     toppings {
-                        name
                         id
+                        name
+                        slug {
+                            current
+                        }
                     }
                 }
             }
@@ -65,7 +68,7 @@ const ToppingsFilter = ({ activeTopping }) => {
                     <Link
                         className={styles.filterItem}
                         key={topping.id}
-                        to={`/topping/${topping.name}`}
+                        to={`/topping/${topping.slug.current}`}
                     >
                         <span className={styles.filterName}>
                             {topping.name}

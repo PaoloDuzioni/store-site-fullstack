@@ -10,7 +10,7 @@ const PizzasPage = ({ data, pageContext }) => {
         <div className="container">
             <h1>Choose the best pizza in the world</h1>
 
-            <ToppingsFilter activeTopping={pageContext.topping} />
+            <ToppingsFilter activeTopping={pageContext.toppingName} />
 
             <PizzaList pizzas={pizzas} />
         </div>
@@ -20,9 +20,9 @@ const PizzasPage = ({ data, pageContext }) => {
 export default PizzasPage;
 
 export const query = graphql`
-    query($topping: String) {
+    query($toppingName: String) {
         pizzas: allSanityPizza(
-            filter: { toppings: { elemMatch: { name: { eq: $topping } } } }
+            filter: { toppings: { elemMatch: { name: { eq: $toppingName } } } }
         ) {
             nodes {
                 id

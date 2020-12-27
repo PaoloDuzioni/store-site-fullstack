@@ -45,8 +45,11 @@ async function toppingsToPages({ graphql, actions }) {
         query {
             toppings: allSanityTopping {
                 nodes {
-                    name
                     id
+                    name
+                    slug {
+                        current
+                    }
                 }
             }
         }
@@ -55,10 +58,10 @@ async function toppingsToPages({ graphql, actions }) {
     // 3. loop every topping and create a page for each topping
     data.toppings.nodes.forEach(topping => {
         actions.createPage({
-            path: `topping/${topping.name}`, // page URL
+            path: `topping/${topping.slug.current}`, // page URL
             component: toppingsTemplate,
             context: {
-                topping: topping.name,
+                toppingName: topping.name,
             },
         });
     });

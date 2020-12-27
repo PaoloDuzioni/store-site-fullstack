@@ -11,6 +11,15 @@ export default {
             description: 'The  name of the topping',
         },
         {
+            name: 'slug',
+            title: 'Slug',
+            type: 'slug',
+            options: {
+                source: 'name',
+                maxLength: 100,
+            },
+        },
+        {
             name: 'vegan',
             title: 'Vegan',
             type: 'boolean',
