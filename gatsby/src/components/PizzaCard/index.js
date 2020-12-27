@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 import Img from 'gatsby-image';
 import styles from './style.module.scss';
 
-const Pizza = ({ details }) => {
+const PizzaCard = ({ details }) => {
     return (
         <li className={styles.pizzaContainer}>
             <Link to={`/pizza/${details.slug.current}`}>
@@ -22,4 +22,4 @@ const Pizza = ({ details }) => {
     );
 };
 
-export default Pizza;
+export default PizzaCard;

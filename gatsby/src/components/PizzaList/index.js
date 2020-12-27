@@ -1,5 +1,5 @@
 import React from 'react';
-import Pizza from '../Pizza';
+import PizzaCard from '../PizzaCard';
 import styles from './style.module.scss';
 
 const PizzaList = ({ pizzas }) => {
@@ -11,7 +11,7 @@ const PizzaList = ({ pizzas }) => {
 
             <ul className={styles.pizzaList}>
                 {pizzas.map(pizza => (
-                    <Pizza key={pizza.id} details={pizza} />
+                    <PizzaCard key={pizza.id} details={pizza} />
                 ))}
             </ul>
         </div>
