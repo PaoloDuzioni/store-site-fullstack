@@ -1,0 +1,21 @@
+@import '../../styles/vars';
+
+.backLink {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: $white;
+    transition: transform 0.4s;
+    &:hover {
+        transform: translateX(-5px);
+    }
+    svg {
+        margin-right: 0.5rem;
+        path {
+            fill: $primary;
+        }
+    }
+}

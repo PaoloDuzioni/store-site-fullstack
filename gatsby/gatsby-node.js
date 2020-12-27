@@ -40,6 +40,7 @@ exports.createPages = async params => {
     // Create pages dinamically
     // 1. Pizzas
     await pizzasToPages(params);
+
     // 2. Toppings
     // 3. Slicemasters
 };

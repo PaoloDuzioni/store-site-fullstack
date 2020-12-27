@@ -1,5 +1,6 @@
 import React from 'react';
 import Img from 'gatsby-image';
+import BackLink from '../BackLink';
 import styles from './style.module.scss';
 
 const PizzaDetail = ({ pizza }) => {
@@ -10,6 +11,8 @@ const PizzaDetail = ({ pizza }) => {
             </figure>
 
             <div className={styles.pizzaContents}>
+                <BackLink>Pizza Menu</BackLink>
+
                 <div className={styles.contentsWrapper}>
                     <h1 className={styles.pizzaTitle}>{pizza.name}</h1>
 
