@@ -11,7 +11,7 @@ const MasterDetail = ({ master }) => {
             </figure>
 
             <div className={styles.masterContents}>
-                <BackLink dest="/pizzamasters">master Menu</BackLink>
+                <BackLink dest="/pizzamasters">Pizza Masters</BackLink>
 
                 <h1 className={`mt-2 ${styles.masterTitle}`}>{master.name}</h1>
 

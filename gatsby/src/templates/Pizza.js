@@ -1,10 +1,15 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import PizzaDetail from '../components/PizzaDetail';
+import { Helmet } from 'react-helmet';
 
 const SinglePizzaPage = ({ data: { pizza } }) => {
     return (
         <section className="container page-single">
+            <Helmet>
+                <title>{pizza.name}</title>
+            </Helmet>
+
             <PizzaDetail pizza={pizza} />
         </section>
     );
