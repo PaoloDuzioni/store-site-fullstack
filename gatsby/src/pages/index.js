@@ -7,11 +7,11 @@ import Callout from '../components/Callout';
 import SEO from '../components/SEO';
 
 function HomePage({ data: { pizzas, masters } }) {
-    // Get a random pizza form all pizzas
+    // Get a random pizza
     const randPizzaIndex = Math.floor(Math.random() * pizzas.nodes.length);
     const randomPizza = pizzas.nodes[randPizzaIndex];
 
-    // Get a random master form all masters
+    // Get a random master
     const randMasterIndex = Math.floor(Math.random() * masters.nodes.length);
     const randomMaster = masters.nodes[randMasterIndex];
 
