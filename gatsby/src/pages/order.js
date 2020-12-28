@@ -1,10 +1,15 @@
 import React from 'react';
+import SEO from '../components/SEO';
 
 const OrderPage = () => {
     return (
-        <div className="container">
-            <h1>Orders Page here</h1>
-        </div>
+        <>
+            <SEO title="Order a pizza!" />
+
+            <div className="container">
+                <h1>Orders Page here</h1>
+            </div>
+        </>
     );
 };
 

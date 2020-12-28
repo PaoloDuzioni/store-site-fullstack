@@ -10,7 +10,7 @@ dotenv.config({ path: '.env' });
 
 module.exports = {
     siteMetadata: {
-        title: `Pizza's Store`,
+        title: `Paolo's Pizza`,
         description: `Your dreams Pizza Store`,
     },
     plugins: [

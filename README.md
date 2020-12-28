@@ -7,6 +7,7 @@
 - GraphQL
 - Axios
 - CSS Modules with SCSS
+- Helmet for SEO
 
 ## Backend
 

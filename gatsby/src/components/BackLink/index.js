@@ -6,7 +6,6 @@ const BackLink = ({ dest, pos, children }) => {
     // Check positioning
     let posStyles = {};
     if (pos) {
-        console.log(pos);
         posStyles = {
             position: pos.type,
             top: pos.y,

@@ -1,17 +1,17 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import PizzaDetail from '../components/PizzaDetail';
-import { Helmet } from 'react-helmet';
+import SEO from '../components/SEO';
 
 const SinglePizzaPage = ({ data: { pizza } }) => {
     return (
-        <section className="container page-single">
-            <Helmet>
-                <title>{pizza.name}</title>
-            </Helmet>
+        <>
+            <SEO title={pizza.name} image={pizza.image.asset.fluid.src} />
 
-            <PizzaDetail pizza={pizza} />
-        </section>
+            <section className="container page-single">
+                <PizzaDetail pizza={pizza} />
+            </section>
+        </>
     );
 };
 

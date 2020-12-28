@@ -1,12 +1,17 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import MasterDetail from '../components/MasterDetail';
+import SEO from '../components/SEO';
 
 const SingleMasterPage = ({ data: { person } }) => {
     return (
-        <section className="container page-single">
-            <MasterDetail master={person} />
-        </section>
+        <>
+            <SEO title={person.name} image={person.image.asset.fluid.src} />
+
+            <section className="container page-single">
+                <MasterDetail master={person} />
+            </section>
+        </>
     );
 };
 

@@ -2,22 +2,30 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import PizzaList from '../components/PizzaList';
 import ToppingsFilter from '../components/ToppingsFilter';
+import SEO from '../components/SEO';
 
 const PizzasPage = ({ data, pageContext }) => {
     const pizzas = data.pizzas.nodes;
 
     return (
-        <div className="container">
-            <h1>Choose the best pizza in the world</h1>
+        <>
+            <SEO
+                title={
+                    pageContext.toppingName
+                        ? `Pizzas with ${pageContext.toppingName}`
+                        : 'All Pizzas'
+                }
+            />
+            <div className="container">
+                <h1>Choose the best pizza in the world</h1>
 
-            <ToppingsFilter activeTopping={pageContext.toppingName} />
+                <ToppingsFilter activeTopping={pageContext.toppingName} />
 
-            <PizzaList pizzas={pizzas} />
-        </div>
+                <PizzaList pizzas={pizzas} />
+            </div>
+        </>
     );
 };
-
-export default PizzasPage;
 
 export const query = graphql`
     query($toppingName: String) {
@@ -47,3 +55,5 @@ export const query = graphql`
         }
     }
 `;
+
+export default PizzasPage;
