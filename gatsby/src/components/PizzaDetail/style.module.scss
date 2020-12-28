@@ -2,11 +2,11 @@
 
 .pizzaDetail {
     display: flex;
-    gap: 2rem;
+    justify-content: space-between;
 }
 
 .pizzaImage {
-    flex-basis: 60%;
+    flex-basis: 56%;
     margin: 0;
     padding: 1rem;
     border: 1px solid rgba($white, 0.75);
@@ -18,7 +18,7 @@
 
 .pizzaContents {
     position: relative;
-    flex-basis: 40%;
+    flex-basis: 36%;
     display: flex;
     align-items: center;
 }

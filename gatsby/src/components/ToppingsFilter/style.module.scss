@@ -16,7 +16,7 @@
     font-size: 14px;
     border: 1px solid $primary;
     border-radius: 5px;
-    // active class setted Gatsby
+    // from Gatsby <Link>
     &[aria-current='page'] {
         background: $primary;
         transition: background 0.4s;

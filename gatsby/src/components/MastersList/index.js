@@ -3,13 +3,9 @@ import { Link } from 'gatsby';
 import Img from 'gatsby-image';
 import styles from './style.module.scss';
 
-const MastersList = ({ masters, count }) => {
+const MastersList = ({ masters }) => {
     return (
         <section className={styles.mastersSection}>
-            <h3 className={styles.sectionTitle}>
-                We actually have {count} masters
-            </h3>
-
             <ul className={`no-list ${styles.mastersList}`}>
                 {masters.map(master => (
                     <li className={styles.masterContainer} key={master.id}>

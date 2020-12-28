@@ -5,6 +5,35 @@
     padding: 1rem;
 }
 
+.flex {
+    display: flex;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.align-center {
+    align-items: center;
+}
+
+// SPACERS
+@each $size in 0, 1, 2, 3, 4, 6 {
+    .mt-#{$size} {
+        margin-top: $size + 0rem;
+    }
+    .pt-#{$size} {
+        padding-top: $size + 0rem;
+    }
+    .mb-#{$size} {
+        margin-bottom: $size + 0rem;
+    }
+    .pb-#{$size} {
+        padding-bottom: $size + 0rem;
+    }
+}
+
+// PAGES
 .page-single {
     padding-top: 4rem;
     padding-bottom: 4rem;

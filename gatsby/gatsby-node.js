@@ -1,10 +1,59 @@
 const path = require('path');
 const axios = require('axios');
 
+/***********************************************************************
+    INSERT IN GATSBY's GraphQL API EXTERNAL REST API/GraphQL DATA
+
+    You can test if the data been created correctly with GraphiQL
+ ***********************************************************************/
+
+/**
+ * GET BEERS FROM EXTERNAL REST API
+ */
+async function fetchBeersToNodes({
+    actions,
+    createNodeId,
+    createContentDigest,
+}) {
+    // 1. fetch list of beer
+    try {
+        const response = await axios.get(
+            'https://sampleapis.com/beers/api/ale'
+        );
+        const beers = response.data;
+
+        // 2. Loop over all the beers to create a node for the beer
+        beers.forEach(beer => {
+            const nodeMeta = {
+                id: createNodeId(`beer-${beer.name}`), // Gatsby's helper for unique IDs if you need
+                parent: null,
+                children: [],
+                internal: {
+                    type: 'Beer', // in GraphQl API -> allBeer and beer
+                    mediaType: 'application/json',
+                    contentDigest: createContentDigest(beer),
+                },
+            };
+
+            actions.createNode({
+                ...beer,
+                ...nodeMeta,
+            });
+        });
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+/**
+ * SOURCE GENERATION OF NODES (DATA)
+ */
+exports.sourceNodes = async params => {
+    await Promise.all([fetchBeersToNodes(params)]);
+};
+
 /****************************************************************
     DINAMIC PAGES GENERATIONS WITH SANITY SOURCES
-
-    Keep this as first creation
  ****************************************************************/
 
 /**
@@ -99,7 +148,7 @@ async function mastersToPages({ graphql, actions }) {
         }
     `);
 
-    // 3. loop every topping and create a page for each topping
+    // 3. loop every master and create a page for each master
     // data.toppings.nodes.forEach(topping => {
     //     actions.createPage({
     //         path: `topping/${topping.slug.current}`, // page URL
@@ -111,20 +160,19 @@ async function mastersToPages({ graphql, actions }) {
     // });
 
     // 4. Pagination
-    const postPerPage = 3;
+    const postPerPage = process.env.GATSBY_MASTERS_PER_PAGE;
     const pageCount = Math.ceil(data.masters.totalCount / postPerPage);
     // Loop from 1 to n and create the pagination pages
-    for (let index = 1; index <= pageCount; index++) {
+    Array.from({ length: pageCount }).map((_, i) => {
         actions.createPage({
-            path: `/pizzamasters/${index}`,
+            path: `/pizzamasters/${i + 1}`,
             component: mastersPaginationTemplate,
             context: {
-                skip: index * postPerPage,
-                currentPage: index,
-                pageCount,
+                skip: i * postPerPage,
+                currentPage: i + 1,
             },
         });
-    }
+    });
 }
 
 /**
@@ -142,56 +190,4 @@ exports.createPages = async params => {
         // 3. PizzaMasters
         mastersToPages(params),
     ]);
-};
-
-/***********************************************************************
-    INSERT IN GATSBY's GraphQL API EXTERNAL REST API/GraphQL DATA
-
-    You can test if the data been created correctly with GraphiQL
- ***********************************************************************/
-
-/**
- * GET BEERS FROM EXTERNAL REST API
- */
-async function fetchBeersToNodes({
-    actions,
-    createNodeId,
-    createContentDigest,
-}) {
-    // 1. fetch list of beer
-    axios
-        .get('https://sampleapis.com/beers/api/ale')
-        .then(function (response) {
-            const beers = response.data;
-            console.log(beers);
-
-            // 2. Loop over all the beers to create a node for the beer
-            beers.forEach(beer => {
-                const nodeMeta = {
-                    id: createNodeId(`beer-${beer.name}`), // Gatsby's helper for unique IDs if you need
-                    parent: null,
-                    children: [],
-                    internal: {
-                        type: 'Beer', // in GraphQl API -> allBeer and beer
-                        mediaType: 'application/json',
-                        contentDigest: createContentDigest(beer),
-                    },
-                };
-
-                actions.createNode({
-                    ...beer,
-                    ...nodeMeta,
-                });
-            });
-        })
-        .catch(error => {
-            console.log(`Error on beers fetching: ${error}`);
-        });
-}
-
-/**
- * SOURCE GENERATION OF NODES (DATA)
- */
-exports.sourceNodes = async params => {
-    await Promise.all([fetchBeersToNodes(params)]);
 };

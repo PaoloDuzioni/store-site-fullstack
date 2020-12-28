@@ -1,0 +1,44 @@
+@import '../../styles/vars';
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    a:not(.textualLink) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 30px;
+        height: 30px;
+        margin: 0 0.4rem;
+        color: $white;
+        border: 1px solid rgba($white, 0.35);
+        border-radius: 50%;
+        transition: background 0.4s;
+        // from Gatsby <Link>
+        &[aria-current='page'] {
+            color: $primary;
+            border: 1px solid $white;
+        }
+        &:not([aria-current='page']):hover {
+            color: $primary;
+            background: rgba($white, 0.15);
+        }
+    }
+}
+.textualLink {
+    text-transform: uppercase;
+    font-size: 0.75em;
+    transition: opacity 0.4s;
+    &:first-child {
+        margin-right: 1rem;
+    }
+    &:last-child {
+        margin-left: 1rem;
+    }
+    &[disabled] {
+        pointer-events: none; // set link not clicable
+        opacity: 0.25;
+    }
+}
