@@ -7,7 +7,7 @@ const BeersList = () => {
     // Get first 10 beers
     const data = useStaticQuery(graphql`
         query {
-            beers: allBeer(limit: 10) {
+            beers: allBeer(limit: 10, skip: 2) {
                 nodes {
                     id
                     name
@@ -22,6 +22,9 @@ const BeersList = () => {
         }
     `);
 
+    // Randomize beers results
+    const shuffledBeers = data.beers.nodes.sort(() => Math.random() - 0.5);
+
     return (
         <section className={styles.beersSection}>
             <h2 className={styles.sectionTitle}>
@@ -29,7 +32,7 @@ const BeersList = () => {
             </h2>
 
             <ul className={`no-list ${styles.beersList}`}>
-                {data.beers.nodes.map(beer => (
+                {shuffledBeers.map(beer => (
                     <li className={styles.beerBox} key={beer.id}>
                         <figure className={styles.beerImage}>
                             <img src={beer.image} alt={beer.name} />
