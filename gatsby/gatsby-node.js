@@ -124,10 +124,13 @@ async function toppingsToPages({ graphql, actions }) {
 }
 
 /**
- * PIZZA MASTERS PAGES WITH PAGINATION
+ * PIZZA MASTERS SINGLE PAGES AND PAGES WITH PAGINATION
  */
 async function mastersToPages({ graphql, actions }) {
-    // 1. get template for this kind of page
+    // 1. get templates for those pages:
+    // Master Single
+    const masterSingleTemplate = path.resolve('./src/templates/Master.js');
+    // Masters Paginated Paged
     const mastersPaginationTemplate = path.resolve(
         './src/pages/pizzamasters.js'
     );
@@ -149,15 +152,16 @@ async function mastersToPages({ graphql, actions }) {
     `);
 
     // 3. loop every master and create a page for each master
-    // data.toppings.nodes.forEach(topping => {
-    //     actions.createPage({
-    //         path: `topping/${topping.slug.current}`, // page URL
-    //         component: toppingsTemplate,
-    //         context: {
-    //             toppingName: topping.name,
-    //         },
-    //     });
-    // });
+    data.masters.nodes.forEach(master => {
+        actions.createPage({
+            path: `master/${master.slug.current}`, // page URL
+            component: masterSingleTemplate,
+            context: {
+                name: master.name,
+                slug: master.slug.current,
+            },
+        });
+    });
 
     // 4. Pagination
     const postPerPage = process.env.GATSBY_MASTERS_PER_PAGE;

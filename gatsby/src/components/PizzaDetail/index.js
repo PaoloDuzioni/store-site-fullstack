@@ -11,7 +11,9 @@ const PizzaDetail = ({ pizza }) => {
             </figure>
 
             <div className={styles.pizzaContents}>
-                <BackLink>Pizza Menu</BackLink>
+                <BackLink dest="/pizzas" pos={{ type: 'absolute', y: 0, x: 0 }}>
+                    Pizza Menu
+                </BackLink>
 
                 <div className={styles.contentsWrapper}>
                     <h1 className={styles.pizzaTitle}>{pizza.name}</h1>
@@ -25,7 +27,7 @@ const PizzaDetail = ({ pizza }) => {
                     </h3>
                     <ul className={styles.pizzaList}>
                         {pizza.toppings.map(topping => (
-                            <li>{topping.name}</li>
+                            <li key={topping.id}>{topping.name}</li>
                         ))}
                     </ul>
                 </div>

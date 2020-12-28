@@ -2,9 +2,20 @@ import React from 'react';
 import { Link } from 'gatsby';
 import styles from './style.module.scss';
 
-const BackLink = ({ children }) => {
+const BackLink = ({ dest, pos, children }) => {
+    // Check positioning
+    let posStyles = {};
+    if (pos) {
+        console.log(pos);
+        posStyles = {
+            position: pos.type,
+            top: pos.y,
+            left: pos.x,
+        };
+    }
+
     return (
-        <Link className={styles.backLink} to={'/pizzas'}>
+        <Link className={styles.backLink} to={dest} style={posStyles}>
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"

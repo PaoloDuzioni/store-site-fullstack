@@ -1,22 +1,21 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import PizzaDetail from '../components/PizzaDetail';
+import MasterDetail from '../components/MasterDetail';
 
-const SinglePizzaPage = ({ data: { pizza } }) => {
+const SingleMasterPage = ({ data: { person } }) => {
     return (
         <section className="container page-single">
-            <PizzaDetail pizza={pizza} />
+            <MasterDetail master={person} />
         </section>
     );
 };
 
-// Get pizza by slug pased as context from gatsby-node-js
+// Get master by slug pased as context from gatsby-node-js
 export const query = graphql`
     query($slug: String!) {
-        pizza: sanityPizza(slug: { current: { eq: $slug } }) {
+        person: sanityPerson(slug: { current: { eq: $slug } }) {
             id
             name
-            price
             image {
                 asset {
                     fluid(maxWidth: 800, maxHeight: 600) {
@@ -24,13 +23,9 @@ export const query = graphql`
                     }
                 }
             }
-            toppings {
-                name
-                id
-                vegan
-            }
+            description
         }
     }
 `;
 
-export default SinglePizzaPage;
+export default SingleMasterPage;
