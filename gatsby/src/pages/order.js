@@ -8,7 +8,7 @@ const OrderPage = () => {
             <SEO title="Order a pizza!" />
 
             <div className="container">
-                <h1>Orders Page here</h1>
+                <h1>Make you order</h1>
 
                 <SiteForm />
             </div>

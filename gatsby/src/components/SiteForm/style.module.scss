@@ -14,8 +14,7 @@
         }
         legend {
             padding: 0.5rem;
-            font-family: $cursive-font;
-            font-size: 1.25em;
+            font-size: 1em;
             color: $primary;
         }
     }
@@ -63,7 +62,8 @@
 
 .pizzaTitle {
     margin: 0 0 1.5rem;
-    font-size: 1.125em;
+    font-family: $cursive-font;
+    font-size: 1.45em;
     color: $primary;
 }
 
