@@ -47,6 +47,7 @@ const OrderForm = () => {
                         type="text"
                         id="name"
                         name="name"
+                        placeholder="Your name here"
                         value={values.name}
                         onChange={updateValue}
                     />
@@ -57,6 +58,7 @@ const OrderForm = () => {
                         type="email"
                         name="email"
                         id="email"
+                        placeholder="Your email here"
                         value={values.email}
                         onChange={updateValue}
                     />
@@ -79,7 +81,9 @@ const OrderForm = () => {
                             <h3 className={styles.pizzaTitle}>{pizza.name}</h3>
                             <div>
                                 {['Small', 'Medium', 'Large'].map(size => (
-                                    <button className={`button small`}>
+                                    <button
+                                        className={`button small ${styles.pizzaButton}`}
+                                    >
                                         <span>{size} </span>
                                         <span>
                                             {calculatePrice(pizza.price, size)}€
