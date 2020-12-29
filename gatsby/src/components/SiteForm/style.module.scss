@@ -1,0 +1,60 @@
+@import '../../styles/vars';
+
+.siteForm {
+    fieldset {
+        margin-bottom: 2rem;
+        padding: 1rem 1rem 1.8rem;
+        border-color: rgba($white, 0.25);
+        legend {
+            padding: 0.5rem;
+            text-transform: uppercase;
+            font-size: 0.875em;
+            color: $primary;
+        }
+    }
+}
+
+.formField {
+    margin-bottom: 1rem;
+    label {
+        display: inline-block;
+        margin-bottom: 0.5rem;
+        text-transform: uppercase;
+        font-size: 0.75em;
+    }
+    input {
+        display: block;
+        width: 100%;
+        height: 45px;
+        padding: 0 1rem;
+        background: rgba($white, 0.75);
+        border: 0;
+        outline: none;
+        transition: background 0.4s;
+        &:hover,
+        &:focus {
+            background: $white;
+        }
+    }
+}
+
+.pizzaWidget {
+    margin-bottom: 1rem;
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.pizzaImage {
+    flex-shrink: 0;
+    width: 100px;
+    margin: 0 1rem 0 0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.pizzaTitle {
+    margin: 0 0 1.5rem;
+    font-size: 1.125em;
+    color: $primary;
+}

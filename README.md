@@ -10,6 +10,7 @@ It's a **work in progress** shop web application that fetches data from headless
 - Axios
 - CSS Modules with SCSS
 - Helmet for SEO
+- React Custom Hooks
 
 ## Backend
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import SEO from '../components/SEO';
+import SiteForm from '../components/SiteForm';
 
 const OrderPage = () => {
     return (
@@ -8,6 +9,8 @@ const OrderPage = () => {
 
             <div className="container">
                 <h1>Orders Page here</h1>
+
+                <SiteForm />
             </div>
         </>
     );
