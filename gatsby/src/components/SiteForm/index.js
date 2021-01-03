@@ -1,7 +1,9 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import useForm from '../../hooks/useForm';
+import useOrder from '../../hooks/useOrder';
 import Img from 'gatsby-image';
+import PizzaOrder from '../PizzaOrder';
 import calculatePrice from '../../utils/calculatePrice';
 import styles from './style.module.scss';
 
@@ -34,6 +36,11 @@ const OrderForm = () => {
         // Defaults
         name: '',
         email: '',
+    });
+
+    const { order, addToOrder, removeFromOrder } = useOrder({
+        pizzas: pizzas.nodes,
+        inputs: values,
     });
 
     return (
@@ -69,6 +76,7 @@ const OrderForm = () => {
                 <legend>Pizza menu</legend>
                 {pizzas.nodes.map(pizza => (
                     <div
+                        key={pizza.id}
                         className={`flex align-center mb-2 ${styles.pizzaWidget}`}
                     >
                         <figure className={styles.pizzaImage}>
@@ -82,7 +90,14 @@ const OrderForm = () => {
                             <div>
                                 {['Small', 'Medium', 'Large'].map(size => (
                                     <button
+                                        key={size}
                                         className={`button small ${styles.pizzaButton}`}
+                                        onClick={e =>
+                                            addToOrder(e, {
+                                                id: pizza.id,
+                                                size,
+                                            })
+                                        }
                                     >
                                         <span>{size} </span>
                                         <span>
@@ -98,6 +113,15 @@ const OrderForm = () => {
 
             <fieldset>
                 <legend>Order</legend>
+                <PizzaOrder
+                    order={order}
+                    removeFromOrder={removeFromOrder}
+                    pizzas={pizzas.nodes}
+                />
+            </fieldset>
+
+            <fieldset>
+                <legend>Check Out</legend>
             </fieldset>
         </form>
     );

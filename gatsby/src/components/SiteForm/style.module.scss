@@ -9,7 +9,8 @@
         overflow: auto;
         padding: 1rem 1rem 1.8rem;
         border-color: rgba($white, 0.15);
-        &:nth-child(1) {
+        &:first-child,
+        &:last-child {
             grid-column: span 2;
         }
         legend {
