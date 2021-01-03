@@ -6,7 +6,11 @@ import styles from './style.module.scss';
 const PizzaOrder = ({ order, pizzas, removeFromOrder }) => {
     return (
         <section>
-            <p>You have {order.length} items in your order.</p>
+            <p>
+                You have{' '}
+                <strong className={styles.orderCount}>{order.length}</strong>{' '}
+                items in your order.
+            </p>
 
             {order.map((singleOrder, index) => {
                 const pizza = pizzas.find(pizza => pizza.id === singleOrder.id);

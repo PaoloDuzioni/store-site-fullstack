@@ -1,5 +1,9 @@
 @import '../../styles/vars';
 
+.orderCount {
+    color: $primary;
+}
+
 .orderItem {
     position: relative;
     display: flex;
