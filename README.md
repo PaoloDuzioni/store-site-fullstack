@@ -17,3 +17,7 @@ It's a **work in progress** shop web application that fetches data from headless
 - Sanity
 - Schemas for back-office fields
 - GraphQL
+
+## Serverless Functions
+
+- Send order email with serverless functions and Netlify (cli and lambda)

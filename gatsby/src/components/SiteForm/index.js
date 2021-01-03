@@ -39,9 +39,17 @@ const OrderForm = () => {
         email: '',
     });
 
-    const { order, addToOrder, removeFromOrder } = useOrder({
+    const {
+        order,
+        addToOrder,
+        removeFromOrder,
+        error,
+        loading,
+        message,
+        submitOrder,
+    } = useOrder({
         pizzas: pizzas.nodes,
-        inputs: values,
+        values,
     });
 
     return (
@@ -128,8 +136,16 @@ const OrderForm = () => {
                         Your order total is{' '}
                         <strong>{calculateTotale(order, pizzas.nodes)}€</strong>
                     </h3>
-                    <button className="button big">Checkout</button>
+                    <button
+                        className={`button big ${styles.submitBtn}`}
+                        disabled={loading}
+                        onClick={submitOrder}
+                    >
+                        {loading ? 'Placing Order...' : 'Place Order'}
+                    </button>
                 </div>
+                {error && <p>Error: {error}</p>}
+                {message && <p className={styles.messageOk}>{message}</p>}
             </fieldset>
         </form>
     );

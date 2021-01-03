@@ -7,11 +7,11 @@
     "scripts": {
         "build": "gatsby build",
         "develop": "gatsby develop",
-        "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
         "start": "npm run develop",
         "serve": "gatsby serve",
         "clean": "gatsby clean",
-        "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+        "netlify": "netlify dev",
+        "prebuild": "netlify-lambda install"
     },
     "dependencies": {
         "axios": "^0.21.1",
@@ -21,6 +21,8 @@
         "gatsby-plugin-react-helmet": "^3.7.0",
         "gatsby-plugin-sass": "^2.7.0",
         "gatsby-source-sanity": "^6.0.4",
+        "netlify-cli": "^2.69.11",
+        "netlify-lambda": "^2.0.2",
         "node-sass": "^4.14.1",
         "normalize.css": "^8.0.1",
         "react": "^16.12.0",
