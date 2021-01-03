@@ -25,7 +25,7 @@ const PizzaOrder = ({ order, pizzas, removeFromOrder }) => {
                             <button
                                 className={styles.itemRemove}
                                 title={`Remove ${singleOrder.size} ${pizza.name} from order`}
-                                onClick={() => removeFromOrder(index)}
+                                onClick={event => removeFromOrder(event, index)}
                             >
                                 &times;
                             </button>

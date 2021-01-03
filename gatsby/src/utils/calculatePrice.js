@@ -11,5 +11,5 @@ export default function calculatePrice(price, size) {
         price += 0.25;
     }
 
-    return price.toFixed(2);
+    return parseFloat(price.toFixed(2));
 }

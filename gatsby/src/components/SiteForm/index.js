@@ -6,6 +6,7 @@ import Img from 'gatsby-image';
 import PizzaOrder from '../PizzaOrder';
 import calculatePrice from '../../utils/calculatePrice';
 import styles from './style.module.scss';
+import calculateTotale from '../../utils/calculateTotal';
 
 const OrderForm = () => {
     // Get all pizzas
@@ -121,7 +122,14 @@ const OrderForm = () => {
             </fieldset>
 
             <fieldset>
-                <legend>Check Out</legend>
+                <legend>Order total</legend>
+                <div className={styles.orderCheckout}>
+                    <h3>
+                        Your order total is{' '}
+                        <strong>{calculateTotale(order, pizzas.nodes)}€</strong>
+                    </h3>
+                    <button className="button big">Checkout</button>
+                </div>
             </fieldset>
         </form>
     );

@@ -11,7 +11,9 @@ export default function useOrder({ pizzas, input }) {
     }
 
     // Remove items to order
-    function removeFromOrder(index) {
+    function removeFromOrder(event, index) {
+        event.preventDefault();
+
         setOrder([
             // Items before the index
             ...order.slice(0, index),
