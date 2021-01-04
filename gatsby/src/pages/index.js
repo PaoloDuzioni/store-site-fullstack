@@ -1,19 +1,19 @@
 import React from 'react';
 import { graphql, Link } from 'gatsby';
+import useLatestData from '../hooks/useLatestData';
+import CuttingMasters from '../components/CuttingMasters';
 import PizzaDetail from '../components/PizzaDetail';
 import BeersList from '../components/BeersList';
-import MasterDetail from '../components/MasterDetail';
 import Callout from '../components/Callout';
 import SEO from '../components/SEO';
 
-function HomePage({ data: { pizzas, masters } }) {
+function HomePage({ data: { pizzas } }) {
+    // Get latest data
+    const { pizzaMasters } = useLatestData();
+
     // Get a random pizza
     const randPizzaIndex = Math.floor(Math.random() * pizzas.nodes.length);
     const randomPizza = pizzas.nodes[randPizzaIndex];
-
-    // Get a random master
-    const randMasterIndex = Math.floor(Math.random() * masters.nodes.length);
-    const randomMaster = masters.nodes[randMasterIndex];
 
     return (
         <>
@@ -21,16 +21,15 @@ function HomePage({ data: { pizzas, masters } }) {
 
             <div className="container">
                 <section className="mb-4">
+                    <CuttingMasters masters={pizzaMasters} />
+                </section>
+
+                <section className="mb-4">
                     <h1 className="mb-2">Not sure which pizza take?</h1>
                     <PizzaDetail pizza={randomPizza} />
                 </section>
 
                 <BeersList />
-
-                <section className="mb-4">
-                    <h2 className="mb-2">Read About one of our masters</h2>
-                    <MasterDetail master={randomMaster} />
-                </section>
 
                 <Callout>
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit.
@@ -62,20 +61,6 @@ export const query = graphql`
                     id
                     vegan
                 }
-            }
-        }
-        masters: allSanityPerson {
-            nodes {
-                id
-                name
-                image {
-                    asset {
-                        fluid(maxWidth: 800, maxHeight: 600) {
-                            ...GatsbySanityImageFluid
-                        }
-                    }
-                }
-                description
             }
         }
     }
