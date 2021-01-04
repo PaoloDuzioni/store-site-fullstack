@@ -13,6 +13,12 @@ export default {
             type: 'string',
         },
         {
+            name: 'sitedescription',
+            title: 'Site Description',
+            description: 'The description of your site',
+            type: 'text',
+        },
+        {
             name: 'pizzamasters',
             title: 'Pizza Master Slicing now',
             description: 'List of the Pizza Master actually active',
