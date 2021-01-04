@@ -57,16 +57,12 @@ export default function useOrder({ pizzas, values }) {
                 }
             );
 
-            // Check for errors
-            if (response.data.status >= 400 && response.data.status < 600) {
-                setLoading(false);
-                setError(response.data.message);
-            } else {
-                setLoading(false);
-                setMessage('Your order been placed successfully!');
-            }
+            setLoading(false);
+            setMessage(response.data.message);
         } catch (error) {
-            console.error(error);
+            //console.error(error.response);
+            setLoading(false);
+            setError(error.response.data.message);
         }
     }
 

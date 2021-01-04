@@ -144,7 +144,7 @@ const OrderForm = () => {
                         {loading ? 'Placing Order...' : 'Place Order'}
                     </button>
                 </div>
-                {error && <p>Error: {error}</p>}
+                {error && <p className={styles.messageError}>Error: {error}</p>}
                 {message && <p className={styles.messageOk}>{message}</p>}
             </fieldset>
         </form>
