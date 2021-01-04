@@ -53,6 +53,10 @@ const OrderForm = () => {
         values,
     });
 
+    if (message) {
+        return <p className={styles.messageOk}>{message}</p>;
+    }
+
     return (
         <form className={styles.siteForm}>
             <fieldset>
@@ -155,7 +159,6 @@ const OrderForm = () => {
                     </button>
                 </div>
                 {error && <p className={styles.messageError}>{error}</p>}
-                {message && <p className={styles.messageOk}>{message}</p>}
             </fieldset>
         </form>
     );
