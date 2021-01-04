@@ -1,6 +1,8 @@
 # Fullstack App with Gatsby and Sanity
 
-It's a **work in progress** shop web application that fetches data from headless CMS (sanity) using Gatsby (react) and GraphQL.
+It's a **work in progress** web application that fetches data from headless CMS (sanity) using Gatsby (react) and GraphQL.
+
+[Live Demo](https://paolospizza.netlify.app/)
 
 ## Frontend
 
