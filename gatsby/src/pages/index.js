@@ -21,12 +21,12 @@ function HomePage({ data: { pizzas } }) {
 
             <div className="container">
                 <section className="mb-4">
-                    <CuttingMasters masters={pizzaMasters} />
+                    <h1 className="mb-2">Not sure which pizza take?</h1>
+                    <PizzaDetail pizza={randomPizza} />
                 </section>
 
                 <section className="mb-4">
-                    <h1 className="mb-2">Not sure which pizza take?</h1>
-                    <PizzaDetail pizza={randomPizza} />
+                    <CuttingMasters masters={pizzaMasters} />
                 </section>
 
                 <BeersList />
