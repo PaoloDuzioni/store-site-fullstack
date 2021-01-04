@@ -6,8 +6,6 @@ import styles from './style.module.scss';
 const MastersList = ({ masters }) => {
     return (
         <section className={styles.mastersSection}>
-            {!masters && <p>Loading data...</p>}
-
             <ul className={`no-list ${styles.mastersList}`}>
                 {masters.map(master => (
                     <li className={styles.masterContainer} key={master.id}>

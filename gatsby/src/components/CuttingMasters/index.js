@@ -9,6 +9,8 @@ const CuttingMasters = ({ masters }) => {
                 Pizza masters currently slicing
             </h2>
 
+            {!masters && <p>Loading masters, please wait...</p>}
+
             <ul className={`no-list ${styles.mastersList}`}>
                 {masters &&
                     masters.map(master => (
