@@ -46,6 +46,7 @@ export default function useOrder({ pizzas, values }) {
             total: calculateTotale(order, pizzas),
             name: values.name,
             email: values.email,
+            mapleSyrup: values.mapleSyrup,
         };
 
         // Call serverless function to send email (POST)

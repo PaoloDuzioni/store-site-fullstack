@@ -19,8 +19,18 @@ const transporter = nodemailer.createTransport({
  * to test: http://localhost:8888/.netlify/functions/placeOrder
  */
 exports.handler = async (event, context) => {
-    // Validate data
     const { body } = JSON.parse(event.body);
+
+    // Check for honeypot
+    if (body.mapleSyrup) {
+        return {
+            statusCode: 400,
+            body: JSON.stringify({
+                message: `Good bye, my friend.`,
+            }),
+        };
+    }
+    // Validate data
     const requiredFields = ['name', 'email', 'order']; // expected fields
 
     // Check required fields

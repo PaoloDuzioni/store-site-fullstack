@@ -37,6 +37,7 @@ const OrderForm = () => {
         // Defaults
         name: '',
         email: '',
+        mapleSyrup: '',
     });
 
     const {
@@ -76,6 +77,15 @@ const OrderForm = () => {
                         id="email"
                         placeholder="Your email here"
                         value={values.email}
+                        onChange={updateValue}
+                    />
+                    <input
+                        className={styles.mapleSyrup}
+                        type="text"
+                        name="mapleSyrup"
+                        id="mapleSyrup"
+                        placeholder="Maple syrup"
+                        value={values.mapleSyrup}
                         onChange={updateValue}
                     />
                 </div>
@@ -144,7 +154,7 @@ const OrderForm = () => {
                         {loading ? 'Placing Order...' : 'Place Order'}
                     </button>
                 </div>
-                {error && <p className={styles.messageError}>Error: {error}</p>}
+                {error && <p className={styles.messageError}>{error}</p>}
                 {message && <p className={styles.messageOk}>{message}</p>}
             </fieldset>
         </form>
