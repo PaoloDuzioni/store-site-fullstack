@@ -47,7 +47,6 @@ export default function useLatestData() {
                 `,
             })
             .then(response => {
-                console.log('HOOK RESPONSE:', response.data);
                 const { data } = response.data;
 
                 setSiteName(data.StoreSettings.sitename);
