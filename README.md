@@ -18,6 +18,7 @@ It's a **work in progress** shop web application that fetches data from headless
 - Schemas for back-office fields
 - GraphQL
 - Honeypot for order form
+- Custom Sanity sidebar with Global settings page
 
 ## Serverless Functions
 
