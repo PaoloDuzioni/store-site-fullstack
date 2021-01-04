@@ -18,7 +18,7 @@ async function fetchBeersToNodes({
     // 1. fetch list of beer
     try {
         const response = await axios.get(
-            'https://sampleapis.com/beers/api/ale'
+            'https://api.sampleapis.com/beers/ale'
         );
         const beers = response.data;
 
